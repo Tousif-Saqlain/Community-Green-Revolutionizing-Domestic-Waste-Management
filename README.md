@@ -1,1 +1,1 @@
-# Community-Green-Revolutionizing-Domestic-Waste-Management
+# Community-Green: Revolutionizing-Domestic-Waste-Management
