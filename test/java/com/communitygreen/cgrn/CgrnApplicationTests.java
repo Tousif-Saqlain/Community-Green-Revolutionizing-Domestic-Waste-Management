@@ -1,0 +1,13 @@
+package com.communitygreen.cgrn;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class CgrnApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}

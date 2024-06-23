@@ -1,0 +1,242 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Profile page</title>-->
+<!--    <script src="https://cdn.tailwindcss.com"></script>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div class="relative overflow-x-auto">-->
+<!--&lt;!&ndash;    <img class="h-auto max-w-xl rounded-lg shadow-xl dark:shadow-gray-800" src="" th:src="@{'/img/'+${user.imgUrl}}" alt="garImage">&ndash;&gt;-->
+<!--    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">-->
+<!--        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">-->
+<!--&lt;!&ndash;        <tr th:text="${user.fname}" scope="col" class="px-6 py-3"></tr>&ndash;&gt;-->
+<!--        <tr>-->
+<!--            <th th:text="${user.fname}" scope="col" class="px-6 py-3">-->
+<!--            </th>-->
+<!--            <th th:text="${user.lname}" scope="col" class="px-6 py-3">-->
+<!--            </th>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <th scope="col" class="px-6 py-3">-->
+<!--                #ID-->
+<!--            </th>-->
+<!--            <th scope="col" class="px-6 py-3">-->
+<!--                CGRN<span th:text="${user.id}"></span>-->
+<!--            </th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">-->
+<!--            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">-->
+<!--                Email-->
+<!--            </th>-->
+<!--            <td class="px-6 py-4">-->
+<!--                <span th:text="${user.email}"></span>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">-->
+<!--            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">-->
+<!--                Phone-->
+<!--            </th>-->
+<!--            <td class="px-6 py-4">-->
+<!--                <span th:text="${user.phone}"></span>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr class="bg-white dark:bg-gray-800">-->
+<!--            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">-->
+<!--                Role-->
+<!--            </th>-->
+<!--            <td class="px-6 py-4">-->
+<!--                <span th:text="${user.role}"></span>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr class="bg-white dark:bg-gray-800">-->
+<!--            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">-->
+<!--                Address-->
+<!--            </th>-->
+<!--            <td class="px-6 py-4">-->
+<!--                <span th:text="${user.addr}"></span>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr class="bg-white dark:bg-gray-800">-->
+<!--            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">-->
+<!--                PinCode-->
+<!--            </th>-->
+<!--            <td class="px-6 py-4">-->
+<!--                <span th:text="${user.pin}"></span>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr class="bg-white dark:bg-gray-800">-->
+<!--            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">-->
+<!--                Account Active-->
+<!--            </th>-->
+<!--            <td class="px-6 py-4">-->
+<!--                <span th:text="${user.enabled}"></span>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link rel="shortcut icon" th:href="@{/img/cg-removebg logo.png}" type="image/png" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <!-- CSS -->
+    <style>
+        table{
+
+            padding: 0px;
+            padding-left: 220px;
+        }
+
+        body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            min-height: 100vh;
+            font-family: "Poppins", sans-serif;
+            background-color: #141525f1;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        header h1 {
+            font-family: 'Arial', sans-serif; /* Use your preferred sans-serif font */
+            font-weight: bold;
+            font-size: 1rem; /* Adjust the font size to your preference */
+            margin: 10px; /* Remove default margin */
+        }
+
+        .sub-container{
+            margin-left: 150px;
+
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: lighter;
+            font-size: large;
+            color: white;
+            width: 80%;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+ <div class="header__wrapper">
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img th:src="@{/img/cg-removebg logo.png}" style="width: 20%; max-width: 200px; height: auto;margin-left: 70px;">
+            <h1 style="font-size: 3vw; margin-left: 10px;">COMMUNITYGREEN</h1>
+        </div>
+    </header>
+    <div class="sub-container ">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg" style="padding: 20px;">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-100">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-100">
+                <tr >
+                    <th th:text="${user.fname}" scope="col" class="px-6 py-4  ">
+                    </th>
+                    <th th:text="${user.lname}" scope="col" class="px-4 py-4  ">
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="col" class="px-6 py-4">
+                        #ID
+                    </th>
+                    <th scope="col" class="px-6 py-4">
+                        CGRN<span th:text="${user.id}"></span>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="even-bg border-b dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        Email
+                    </th>
+                    <th class="px-6 py-4">
+                        <span th:text="${user.email}"></span>
+                    </th>
+
+                </tr>
+                <tr class="odd-bg border-b dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        Phone
+                    </th>
+                    <th class="px-6 py-4">
+                        <span th:text="${user.phone}"></span>
+                    </th>
+
+                </tr>
+                <tr class="even-bg border-b dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        Role
+                    </th>
+                    <th class="px-6 py-4">
+                        <span th:text="${user.role}"></span>
+                    </th>
+
+                </tr>
+                <tr class="odd-bg border-b dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        Address
+                    </th>
+                    <th class="px-6 py-4">
+                        <span th:text="${user.addr}"></span>
+                    </th>
+
+                </tr>
+                <tr class="even-bg border-b dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        Pincode
+                    </th>
+                    <th class="px-6 py-4">
+                        <span th:text="${user.pin}"></span>
+                    </th>
+
+                </tr>
+                <tr class="odd-bg border-b dark:border-gray-700">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        Account Active
+                    </th>
+                    <th class="px-6 py-4">
+                        <span th:text="${user.enabled}"></span>
+                    </th>
+
+                </tr>
+                </tbody>
+            </table>
+            <button onclick="javascript:history.back()" class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 via-lightblue-400 to-cyan-600 group-hover:from-cyan-500 group-hover:to-lightblue-300 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800" style="margin-top: 50px;">
+                <span class="relative px-5 py-2.5 transition-all ease-in duration-75  dark:bg-gray-900 rounded-md group-hover:bg-opacity-0" style="color: rgb(249, 242, 242); font-size: large ;font-weight:light;align-items: center; ">
+                    Back
+                </span>
+            </button>
+        </div>
+    </div>
+ </div>
+</body>
+</html>

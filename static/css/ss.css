@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --Tomato: green;
+    --Tomato2:green;
+    --Dark-Slate-Grey: black;
+    --Charcoal-Grey: black;
+    --Grey: hsl(231, 7%, 60%);
+    --White: hsl(0, 0%, 100%);
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: var(--Charcoal-Grey);
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#success-container {
+    background-color: var(--White);
+    width: 25%;
+    padding: 5rem;
+    border-radius: 2rem;
+    box-shadow: 5px 2px 20px 2px black;
+}
+
+.success-content > h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 3rem;
+}
+
+.success-content > p > span {
+    font-weight: bolder;
+}
+
+button {
+    width: 93.5%;
+    padding: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--Dark-Slate-Grey);
+    color: var(--White);
+    cursor: pointer;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+
+button:hover {
+    background: linear-gradient(to right, var(--Tomato2), var(--Tomato));
+    box-shadow: 5px 2px 20px 3px blue;
+}
+
+@media (max-width: 850px) {
+
+    #success-container {
+        width: 45%;
+    }
+}
+
+@media (max-width: 430px) {
+    main {
+        height: 105vh;
+    }
+
+
+    button {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    #success-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 390px) {
+    main {
+        height: 120vh
+    }
+
+    #success-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 320px) {
+    main {
+        height: 147vh;
+    }
+
+    #success-container {
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
+}

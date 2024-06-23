@@ -1,0 +1,8 @@
+[ERROR] 2024-05-12 19:43:08.625 [main] DeepNetts - java.io.FileNotFoundException: src\main\resources\dataset\index.txt (The system cannot find the file specified)
+[ERROR] 2024-05-12 19:52:52.831 [main] DeepNetts - javax.imageio.IIOException: Can't read input file!
+[ERROR] 2024-05-12 20:03:42.763 [main] DeepNetts - javax.imageio.IIOException: Can't read input file!
+[ERROR] 2024-05-12 20:13:21.455 [main] DeepNetts - java.io.FileNotFoundException: src\main\resources\dataset\train\index.txt (The system cannot find the file specified)
+[ERROR] 2024-05-12 20:24:00.557 [main] DeepNetts - java.io.FileNotFoundException: src\main\resources\dataset\index.txt (The system cannot find the file specified)
+[ERROR] 2024-05-12 20:27:02.371 [main] DeepNetts - javax.imageio.IIOException: Can't read input file!
+[ERROR] 2024-05-12 20:35:32.592 [main] DeepNetts - javax.imageio.IIOException: Can't read input file!
+[ERROR] 2024-05-12 20:51:22.216 [main] DeepNetts - javax.imageio.IIOException: Can't read input file!

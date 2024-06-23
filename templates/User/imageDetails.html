@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+<div th:if="${histry}">
+    <img class="h-auto max-w-xl rounded-lg shadow-xl dark:shadow-gray-800" src="" th:src="@{'/img/'+${histry.image}}" alt="garImage">
+    <h3 th:text="${histry.address}"></h3>
+</div>
+<h2 th:unless="${histry}">Unauthorized</h2>
+</body>
+</html>

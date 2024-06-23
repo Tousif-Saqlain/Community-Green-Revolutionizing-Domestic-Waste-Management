@@ -1,0 +1,207 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Show Histry</title>-->
+<!--    <script src="https://cdn.tailwindcss.com"></script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-black">Waste Reports</h1>-->
+<!--<div class="relative overflow-x-auto">-->
+<!--    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">-->
+<!--        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">-->
+<!--        <tr>-->
+<!--            <th scope="col" class="px-6 py-3">-->
+<!--                Sl.No-->
+<!--            </th>-->
+<!--            <th scope="col" class="px-6 py-3">-->
+<!--                Address-->
+<!--            </th>-->
+<!--            <th scope="col" class="px-6 py-3">-->
+<!--                Email-->
+<!--            </th>-->
+<!--            <th scope="col" class="px-6 py-3">-->
+<!--                Action-->
+<!--            </th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr th:each="h:${histries}" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">-->
+<!--            <th scope="row" th:text="${'CGR'+h.iID}" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">-->
+<!--                1-->
+<!--            </th>-->
+<!--            <td class="flex items-center px-6 py-4">-->
+<!--                <img class="w-10 h-10 rounded-full" src="" th:src="@{'/img/'+${h.image}}" alt="garImage">-->
+<!--                <span th:text="${h.address}" class="ps-3"></span>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--                <span th:text="${h.user.email}"></span>-->
+<!--            </td>-->
+<!--            &lt;!&ndash;            bg-gray-800 hover:bg-gray-900&ndash;&gt;-->
+<!--            <td class="px-6 py-4">-->
+<!--                <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-600 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"><a href="#" th:href="@{'/user/'+${h.iID}+'/viewa'}">View</a></button>-->
+<!--                <form method="post" th:action="@{/send_ack}">-->
+<!--                    <input type="hidden" th:value="${h.user.email}" name="email">-->
+<!--                    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Accept</button>-->
+<!--                </form>-->
+<!--                <button type="button" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><a>Reject</a></button>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+<!--    &lt;!&ndash;    Pagination&ndash;&gt;-->
+<!--    <nav aria-label="Page navigation example">-->
+<!--        <ul class="inline-flex -space-x-px text-sm">-->
+<!--            <li th:if="${currentPage!=0}">-->
+<!--                <a th:href="@{'/user/show-histrya/'+${currentPage -1}}" href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>-->
+<!--            </li>-->
+<!--            <li th:classappend="${currentPage==i -1?'active':''}" th:each="i:${#numbers.sequence(1,totalpages)}" >-->
+<!--                <a th:href="@{'/user/show-histrya/'+${i -1}}" href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" th:text="${i}"></a>-->
+<!--            </li>-->
+<!--            <li th:if="${currentPage+1 !=totalpages}">-->
+<!--                <a th:href="@{'/user/show-histrya/'+${currentPage +1}}" href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </nav>-->
+<!--</div>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Reports</title>
+    <link rel="shortcut icon" th:href="@{/img/cg-removebg logo.png}" type="image/png" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: bold;
+        font-size: large;
+        color: white;
+        background-color:#283141;
+    }
+    .sub-container {
+        width: 100%;
+         /* Adjust margin as needed */
+        /* Adjust padding to reduce gap on the right */
+    }
+    .container {
+        background-color:#283141;
+        text-align:justify;
+        max-width: 100%;
+        width: 100%;
+
+
+    }
+    p {
+        font-size: 20px;
+        padding: 20px;
+        text-indent: 5px;
+        line-height: 1.5;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+
+    @media only screen and (min-width: 600px) {
+        form {
+            max-width: 65%;
+        }
+    }
+</style>
+</head>
+<body>
+<img th:src="@{/img/communitygreen_1.png}">
+  <div class="sub-container">
+    <section class="bg-blue-900 dark:bg-gray-900 max-w-screen-2xl" style="width: 100%;">
+        <div class="py-8 lg:py-16 px-4 mx-auto ">
+            <div>
+                <table class="w-full text-sm text-left rtl:text-right text-gray-900 dark:text-gray-900" >
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-600 dark:text-gray-100">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                            SL No.
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Image
+                        </th>
+                        <th scope="col" class="px-20 py-3" >
+                            Address
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Email
+                        </th>
+                        <th scope="col" class="px-12 py-3">
+                            Action
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="h:${histries}" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <th scope="row" th:text="${'CGR'+h.iID}" class="px-6 py-4 ">
+                            45778
+                        </th>
+                        <td class="px-6 py-4" >
+                            <img class="w-10 h-10 rounded-full" th:src="@{'/img/'+${h.image}}" alt="Jese image">
+                        </td>
+                        <td th:text="${h.address}" class="px-6 py-4" >
+                            HKBK college of engineering
+                        </td>
+                        <td th:text="${h.user.email}" class="px-6 py-4">
+                            @gmail.com
+                        </td>
+                        <td class="px-12 py-4 flex" style="padding-top: 850px;">
+                            <button type="button" class="px-3 py-1 text-white bg-gray-800 hover:bg-gray-900 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm dark:bg-gray-600 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800 mr-2"><a href="#" th:href="@{'/user/'+${h.iID}+'/viewa'}">View</a></button>
+                            <form method="post" th:action="@{/send_ack}">
+                                <input type="hidden" th:value="${h.user.email}" name="email">
+                                <button type="submit" class="px-3 py-1 text-white bg-green-700 hover:bg-green-900 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800 mr-2">Accept</button>
+                            </form>
+                            <form method="post" th:action="@{/send_ack1}">
+                                <input type="hidden" th:value="${h.user.email}" name="email">
+                                <button type="submit" class="px-3 py-1 text-white focus:outline-none bg-red-700 hover:bg-red-900 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Reject</button>
+                            </form>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <nav aria-label="Page navigation example" style="padding-top: 20px;">
+                <ul class="flex items-center -space-x-px h-8 text-sm">
+                    <li th:if="${currentPage!=0}">
+                        <a th:href="@{'/user/show-histrya/'+${currentPage -1}}" href="#" aria-current="page" class="z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">Previous</a>
+                    </li>
+                    <li th:classappend="${currentPage==i -1?'active':''}" th:each="i:${#numbers.sequence(1,totalpages)}">
+                        <a th:href="@{'/user/show-histrya/'+${i -1}}" href="#"  class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" th:text="${i}"></a>
+                    </li>
+                    <li th:if="${currentPage+1 !=totalpages}">
+                        <a th:href="@{'/user/show-histrya/'+${currentPage +1}}" href="#" aria-current="page" class="z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">Next</a>
+                    </li>
+                </ul>
+            </nav>
+            <br>
+            <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 via-lightblue-400 to-cyan-600 group-hover:from-cyan-500 group-hover:to-lightblue-300 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                <span class="relative px-5 py-2.5 transition-all ease-in duration-75  dark:bg-gray-900 rounded-md group-hover:bg-opacity-0" style="color: white; font-size: large ;font-weight:light;align-items: center;">
+                    <a th:href="@{/user/admin}">
+                          Back
+                    </a>
+                </span>
+            </button>
+        </div>
+    </section>
+  </div>
+</body>
+</html>
+

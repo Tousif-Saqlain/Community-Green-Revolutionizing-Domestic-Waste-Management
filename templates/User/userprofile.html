@@ -1,0 +1,521 @@
+<!--xmlns:th="http://www.thymeleaf.org"
+th:replace="User/home::layout(~{::section})"-->
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home-CommunityGreen</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+            rel="shortcut icon"
+            href="lg_wbg.jpeg"
+            type="image/x-icon"
+    />
+    <link
+            href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+            rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/f961e26959.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+
+<body>
+<!-- <div id="nav">
+  <img class="border-radius:50px;"
+    src="cg-removebg logo.png"
+    alt=""
+  />
+  <img id="cg" class="border-radius:50px;"
+    src="cg-removebg-name.png"
+    alt=""
+  />
+  <h4>Home</h4>
+  <h4>Dashboard</h4>
+  <h4>How It Works</h4>
+  <h4>About Us</h4>
+  <h4>Contact Us</h4>
+  <h4>FAQ's</h4>
+
+</div>
+<div id="lb">
+  <a href="#_" class="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
+    <span class="w-full h-full bg-gradient-to-br from-[#2dd4bf] via-[#7dd3fc] to-[#10b981] group-hover:from-[#2dd4bf] group-hover:via-[#7dd3fc] group-hover:to-[#10b981] absolute"></span>
+    <span class="relative px-5 py-2 transition-all ease-out bg-slate-950 rounded-md group-hover:bg-opacity-0 duration-400">
+    <span class="relative text-white">Login</span>
+    </span>
+  </a>
+</div> -->
+<!-- <div id="cursor"></div> -->
+<!-- <div id="cursor-blur"></div> -->
+
+<!-- NAVBAR -->
+
+
+<nav class=" fixed w-full z-20 top-0 start-0" id="navb">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
+        <a href="" class="flex items-center space-x-1 rtl:space-x-reverse">
+            <img th:src="@{/img/cg-removebg logo.png}" class="h-8" alt="Logo">
+            <img th:src="@{/img/cg-removebg-name.png}" class="h-5" alt="lname">
+        </a>
+
+
+        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <div class="flex items-center space-x-6 rtl:space-x-reverse">
+                <a href="#" th:href="@{/user/show-histry/0}"  class="block py-2 px-3 font-sans text-cyan-600 rounded hover:bg-cyan-400 md:hover:bg-transparent md:hover:text-slate-950 md:p-0 md:dark:hover:text-slate-950 dark:text-white dark:hover:bg-cyan-400 dark:hover:text-white md:dark:hover:bg-transparent dark:border-cyan-500">
+                    <button type="button" class=" focus:ring-4 ring-2 ring-cyan-500 ring-offset-2 ring-offset-slate-50 dark:ring-offset-slate-950 font-medium rounded-lg text-sm px-1 py-1.5 text-center inline-flex items-center me-2  dark:hover:bg-cyan-500 ">
+                        <svg class="w-7 h-6.8 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm0 0a8.949 8.949 0 0 0 4.951-1.488A3.987 3.987 0 0 0 13 16h-2a3.987 3.987 0 0 0-3.951 3.512A8.948 8.948 0 0 0 12 21Zm3-11a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                        </svg>
+                        <strong><span  th:text="${user.fname}" class="font-semibold text-base text-gray-900 dark:text-white"></span></strong>
+                    </button>
+                </a>
+            </div>
+            <!-- <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Get started</button> -->
+            <button class="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
+                <span class="w-full h-full bg-gradient-to-br from-[#2dd4bf] via-[#7dd3fc] to-[#10b981] group-hover:from-[#2dd4bf] group-hover:via-[#7dd3fc] group-hover:to-[#10b981] absolute"></span>
+                  <span class="relative px-5 py-2 transition-all ease-out bg-slate-950 rounded-md group-hover:bg-opacity-0 duration-400">
+                  <span class="relative text-white"><a th:href="@{/logout}">LogOut</a></span>
+                </span>
+            </button>
+            <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-cyan-500 rounded-lg md:hidden hover:bg-cyan-100 focus:outline-none focus:ring-2 focus:ring-cyan-200 dark:text-cyan-400 dark:hover:bg-cyan-500 dark:focus:ring-cyan-500" aria-controls="navbar-sticky" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                </svg>
+            </button>
+        </div>
+        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+            <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border  rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 dark:border-cyan-500">
+                <li id="navt">
+                    <a href="#" class="block py-2 px-3 font-sans text-white bg-cyan-500 rounded hover:bg-slate-950 md:hover:bg-transparent md:hover:text-slate-950 md:p-0 md:dark:hover:text-slate-950 md:bg-transparent md:text-cyan-500 md:p-0 md:dark:text-white " aria-current="page">Home</a>
+                </li>
+                <li id="navt1">
+                    <a href="#" th:href="@{/leader}" class="block py-2 px-3 font-sans text-cyan-600 rounded hover:bg-slate-950 md:hover:bg-transparent md:hover:text-slate-950 md:p-0 md:dark:hover:text-slate-950 dark:text-white dark:hover:bg-cyan-500 dark:hover:text-white md:dark:hover:bg-transparent dark:border-cyan-500">Leaderboard</a>
+                </li>
+                <li id="navt2">
+                    <a href="#" th:href="@{/Hiw}" class="block py-2 px-3 font-sans text-cyan-600 rounded hover:bg-cyan-400 md:hover:bg-transparent md:hover:text-slate-950 md:p-0 md:dark:hover:text-slate-950 dark:text-white dark:hover:bg-cyan-400 dark:hover:text-white md:dark:hover:bg-transparent dark:border-cyan-500">How It Works</a>
+                </li>
+                <li id="navt3">
+                    <a href="#green-div" class="block py-2 px-3 font-sans text-cyan-600 rounded hover:bg-cyan-400 md:hover:bg-transparent md:hover:text-slate-950 md:p-0 md:dark:hover:text-slate-950 dark:text-white dark:hover:bg-cyan-400 dark:hover:text-white md:dark:hover:bg-transparent dark:border-cyan-500">About Us</a>
+                </li>
+                <li id="navt4">
+                    <a href="#contact" class="block py-2 px-3 font-sans text-cyan-600 rounded hover:bg-cyan-400 md:hover:bg-transparent md:hover:text-slate-950 md:p-0 md:dark:hover:text-slate-950 dark:text-white dark:hover:bg-cyan-400 dark:hover:text-white md:dark:hover:bg-transparent dark:border-cyan-500">Contact Us</a>
+                </li>
+                <li id="navt5">
+                    <a href="#faq" class="block py-2 px-3 font-sans text-cyan-600 rounded hover:bg-cyan-400 md:hover:bg-transparent md:hover:text-slate-950 md:p-0 md:dark:hover:text-slate-950 dark:text-white dark:hover:bg-cyan-400 dark:hover:text-white md:dark:hover:bg-transparent dark:border-cyan-500">FAQ's</a>
+                </li>
+            </ul>
+        </div>
+        <div class="hidden w-full" id="navbar-hamburger">
+            <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                <li>
+                    <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded dark:bg-blue-600" aria-current="page">Home</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Services</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white">Pricing</a>
+                </li>
+                <li>
+                    <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<video
+        autoplay
+        loop
+        muted
+        th:src="@{/img/km_20230919_1080p_30f_20230919_180932.mp4}"
+></video>
+<div id="main">
+    <div id="page1">
+        <h1>CommunityGreen.</h1>
+        <h2>REVOLUTIONIZING WASTE MANAGEMENT<br>ONE SNAPSHOT AT A TIME</h2>
+        <a href="#" th:href="@{/user/addImage}" class="relative p-0.5 inline-flex items-center justify-center font-bold overflow-hidden group rounded-md">
+            <span class="w-full h-full bg-gradient-to-br from-[#2dd4bf] via-[#7dd3fc] to-[#10b981] group-hover:from-[#2dd4bf] group-hover:via-[#7dd3fc] group-hover:to-[#10b981] absolute"></span>
+            <span class="relative px-6 py-3 transition-all ease-out bg-slate-950 rounded-md group-hover:bg-opacity-0 duration-400">
+          <span class="relative text-white">Get Started</span>
+          </span>
+        </a>
+        <!-- <div id="arrow">
+          <i class="ri-arrow-down-line"></i>
+        </div> -->
+    </div>
+    <div id="page2">
+        <div id="scroller">
+            <div id="scroller-in1">
+                <h4>REVOLUTIONIZING</h4>
+                <h4>WASTE</h4>
+                <h4>MANAGEMENT</h4>
+                <h4>ONE SNAPSHOT</h4>
+                <h4>AT A TIME.</h4>
+            </div>
+            <div id="scroller-in2">
+                <h4>&nbsp &nbsp REVOLUTIONIZING</h4>
+                <h4>WASTE</h4>
+                <h4>MANAGEMENT</h4>
+                <h4>ONE SNAPSHOT</h4>
+                <h4>AT A TIME</h4>
+            </div>
+        </div>
+        <div id="about-us">
+            <img
+                    th:src="@{/img/pexels-suzy-hazelwood-2955032.jpg}"
+                    alt=""
+            />
+            <div id="about-us-in">
+                <h3>Dashboard</h3>
+                <p>
+                    Whether you're passionate about waste reduction, excited by technological innovation, or simply eager to contribute to a cleaner community, CommunityGreen welcomes you. Together, let's embark on a journey towards sustainable living, where each action counts, and every community member is a guardian of our environment.
+                </p>
+            </div>
+            <img
+                    th:src="@{/img/pexels-polina-zimmerman-3782228.jpg}"
+                    alt=""
+            />
+        </div>
+        <div id="cards-container">
+            <div class="card" id="card1">
+                <div class="overlay">
+                    <h4>Active Users</h4>
+                    <p>
+                        Update Backend Thing
+                    </p>
+                </div>
+            </div>
+            <div class="card" id="card2">
+                <div class="overlay">
+                    <h4>Registered <br>Reports</h4>
+                    <p>
+                        Update Backend
+                    </p>
+                </div>
+            </div>
+            <div class="card" id="card3">
+                <div class="overlay">
+                    <h4>No Of Office<br> Collaborated</h4>
+                    <p>
+                        Update Backend
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="green-div">
+            <img
+                    src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
+                    alt=""
+            />
+            <h4>
+                Welcome to CommunityGreen, where we believe in the transformative power of community-driven action for a greener and more sustainable world.
+                Our platform is not just a waste management solution; it's a movement that empowers individuals to actively contribute to building cleaner and healthier neighbourhoods.
+            </h4>
+            <img
+                    src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
+                    alt=""
+            />
+        </div>
+    </div>
+    <div id="about-us-in1">
+        <h3>About Us</h3>
+    </div>
+    <div id="page3">
+        <p>
+            <span>Our Vission</span><br>
+            At CommunityGreen, we envision a future where every community member
+            plays a vital role in fostering environmental responsibility.
+            We aspire to create neighborhoods that thrive on collective efforts,
+            where waste is managed efficiently, and sustainability is a shared commitment.
+
+        </p>
+        <img
+                id="colon1"
+                th:src="@{/img/col.png}"
+                alt=""
+        />
+        <img
+                id="colon2"
+                th:src="@{/img/col2.png}"
+                alt=""
+        />
+    </div>
+    <div id="page3m">
+        <p>
+            <span>Our Mission</span><br>
+            Our mission is to revolutionize domestic waste management through technology,
+            collaboration, and a sense of shared responsibility.
+            We strive to provide a platform that not only identifies and addresses waste
+            concerns but also fosters a deeper connection between individuals and their communities.
+
+        </p>
+        <img
+                id="colon1m"
+                th:src="@{/img/col.png}"
+                alt=""
+        />
+        <img
+                id="colon2m"
+                th:src="@{/img/col2.png}"
+                alt=""
+        />
+    </div>
+    <div id="page4">
+        <h1>Objectives</h1>
+        <div class="elem">
+            <h2>1.Empowering Waste Reporting</h2>
+            <img
+                    th:src="@{/img/ObjImg.jpg}"
+                    alt=""
+            />
+        </div>
+        <div class="elem">
+            <h2>2.Government Collaboration</h2>
+            <img
+                    th:src="@{/img/ObjImg.jpg}"
+                    alt=""
+            />
+        </div>
+        <div class="elem">
+            <h2>3.Cleanup Schedule Tracking</h2>
+            <img
+                    th:src="@{/img/ObjImg.jpg}"
+                    alt=""
+            />
+        </div>
+        <div class="elem">
+            <h2>4.Social Score System</h2>
+            <img
+                    th:src="@{/img/ObjImg.jpg}"
+                    alt=""
+            />
+        </div>
+    </div>
+    <!-- contact -->
+    <section class="bg-white dark:bg-gray-900" id="contact">
+        <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 dark:text-white">Contact Us</h2>
+            <p class="mb-8 lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Got a technical issue? Want to send feedback about a service? Need details about our rewards,points,etc? Let us know.</p>
+            <form action="#" class="space-y-8">
+                <div>
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
+                    <input type="email" id="email" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="name@gmail.com" required>
+                </div>
+                <div>
+                    <label for="subject" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Subject</label>
+                    <input type="text" id="subject" class="block p-3 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 dark:shadow-sm-light" placeholder="Let us know how we can help you" required>
+                </div>
+                <div class="sm:col-span-2">
+                    <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Your message</label>
+                    <textarea id="message" rows="6" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Leave a comment..."></textarea>
+                </div>
+                <button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 via-lightblue-400 to-cyan-600 group-hover:from-cyan-500 group-hover:to-lightblue-300 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+                  <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+                  Send message
+                  </span>
+            </form>
+        </div>
+    </section>
+    <!-- faq -->
+    <section class="bg-white dark:bg-black" id="faq">
+        <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
+            <h2 class="mb-8 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Frequently Asked Questions</h2>
+            <div class="grid pt-8 text-left border-t border-gray-200 md:gap-16 dark:border-gray-700 md:grid-cols-2">
+                <div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            What specific technologies are being used in this waste management initiative?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">Clients often want to understand the technological aspects of the project to ensure compatibility with existing infrastructure or to assess the potential for future scalability.</p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            How will the waste management initiative impact our community's cleanliness and overall environment?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">Clients are interested in the tangible outcomes and benefits of the project, including improvements in cleanliness, environmental sustainability, and community well-being.</p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            What resources or support will our organization need to provide for the successful implementation of the initiative?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">Clients may inquire about their responsibilities and contributions to the project, such as providing access to infrastructure, allocating funding, or supporting community engagement efforts.</p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            What metrics will be used to measure the effectiveness of the waste management initiative?                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">Clients often seek clarity on how the success of the project will be evaluated, including specific performance indicators, monitoring methods, and reporting mechanisms.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            How will the waste management initiative integrate with existing waste management systems or processes in our community?
+                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">Clients may have concerns about the compatibility of the initiative with current practices and infrastructure, as well as the potential for disruption or enhancement of existing processes.</p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            What level of community engagement and participation is expected for the success of the initiative?                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">Clients may want to understand the role of community members and stakeholders in the project, as well as strategies for fostering engagement and participation throughout the implementation process.</p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            What measures are in place to ensure data security and privacy within the project?                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400">Clients often prioritize the protection of sensitive information and may inquire about the protocols and safeguards in place to mitigate risks related to data security and privacy breaches.</p>
+                    </div>
+                    <div class="mb-10">
+                        <h3 class="flex items-center mb-4 text-lg font-medium text-gray-900 dark:text-white">
+                            <svg class="flex-shrink-0 mr-2 w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"></path></svg>
+                            How will the waste management initiative be funded, and what are the projected costs and returns on investment?                        </h3>
+                        <p class="text-gray-500 dark:text-gray-400"> Clients may seek information about the financial aspects of the project, including funding sources, budget allocations, and anticipated returns on investment in terms of cost savings or community benefits.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <div id="footer">
+      <img
+        src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-footer.svg"
+        alt=""
+      />
+      <div id="f1">
+
+      </div>
+      <div id="f2">
+
+      </div>
+      <div id="f3">
+
+      </div>
+      <div id="f4">
+        <h4>
+
+        </h4>
+      </div>
+    </div> -->
+</div>
+<footer>
+    <div class="bg-gray-800 py-4 text-gray-400">
+        <div class="container px-4 mx-auto">
+            <div class="-mx-4 flex flex-wrap justify-between">
+                <div class="px-4 my-1 w-full xl:w-1/9">
+                    <!-- <img  src="cg-removebg logo.png" alt="logo"> -->
+                    <a href="#" class="block w-56 mb-2">
+                        <img  class="block w-16 ml-20 mb-2" th:src="@{/img/cg-removebg logo.png}" alt="logo">
+                        <svg version="1.1" viewBox="0 0 4800 612" xmlns="http://www.w3.org/2000/svg">
+                            <!-- <g fill="none" fill-rule="evenodd">
+                              <g transform="translate(0 -75)">
+                                <g transform="translate(0 75)">
+                                  <rect width="512" height="512" rx="128" fill="#3D5AFE"></rect>
+                                  <rect x="149" y="176" width="220" height="220" fill="#fff"></rect>
+                                  <circle cx="259" cy="156" r="40" fill="#fff"></circle>
+                                   <circle cx="369" cy="286" r="40" fill="#2962FF"></circle>
+                                </g> -->
+                            <text fill="white" font-family="Nunito-Bold, Nunito" font-size="612" font-weight="bold">
+
+                                <tspan  y="400">CommunityGreen</tspan>
+                            </text>
+                            <!-- </g> -->
+                            <!-- </g> -->
+                        </svg>
+                    </a>
+                    <p class="text-justify">
+                        REVOLUTIONIZING WASTE MANAGEMENT<br>ONE SNAPSHOT AT A TIME                    </p>
+                </div>
+
+                <div class="px-4 my-2 w-full sm:w-auto">
+                    <div>
+                        <h2 class="inline-block text-2xl pb-4 mb-4 border-b-4 border-cyan-600">Company</h2>
+                    </div>
+                    <ul class="leading-8">
+                        <li><a href="#" class="hover:text-cyan-400">About Us</a></li>
+                        <li>Contact Us : <i class="fa-solid fa-paper-plane" style="color: #5eeafc;"></i></i> <span class="hover:text-cyan-400">infocommunitygreen@gmail.com</span></li>
+                        <li class="hover:text-cyan-400">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-square-phone" style="color: #5eeafc;"></i> 9964180723</li>
+                    </ul>
+                </div>
+                <!-- <div class="px-4 my-4 w-full sm:w-auto">
+                  <div>
+                    <h2 class="inline-block text-2xl pb-4 mb-4 border-b-4 border-cyan-600">Contact</h2>
+                  </div>
+                  <ul class="leading-8">
+                    <li><a href="#" class="hover:text-cyan-400">Getting Started With HTML and CSS</a></li>
+                    <li><a href="#" class="hover:text-cyan-400">What Is Flex And When to Use It?</a></li>
+                    <li><a href="#" class="hover:text-cyan-400">How TailwindCSS Can Help Your Productivity?</a></li>
+                    <li><a href="#" class="hover:text-cyan-400">5 Tips to Make Responsive Website</a></li>
+                    <li class="hover:text-cyan-400"><button>Submit</button></li>
+                  </ul>
+                </div> -->
+                <div class="px-4 my-4 w-full sm:w-auto xl:w-1/5">
+                    <div>
+                        <h2 class="inline-block text-2xl pb-4 mb-4 border-b-4 border-cyan-600">Connect With Us</h2>
+                    </div>
+                    <a href="#" class="inline-flex items-center justify-center h-8 w-8 border border-gray-100 rounded-full mr-1 hover:text-cyan-400 hover:border-cyan-400">
+                        <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                            <path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="inline-flex items-center justify-center h-8 w-8 border border-gray-100 rounded-full mr-1 hover:text-cyan-400 hover:border-cyan-400">
+                        <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="inline-flex items-center justify-center h-8 w-8 border border-gray-100 rounded-full mr-1 hover:text-cyan-400 hover:border-cyan-400">
+                        <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="inline-flex items-center justify-center h-8 w-8 border border-gray-100 rounded-full mr-1 hover:text-cyan-400 hover:border-cyan-400">
+                        <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                            <path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path>
+                        </svg>
+                    </a>
+                    <a href="#" class="inline-flex items-center justify-center h-8 w-8 border border-gray-100 rounded-full hover:text-cyan-400 hover:border-cyan-400">
+                        <svg class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                            <path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bg-cyan-500 py-4 text-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="-mx-4 flex flex-wrap justify-between">
+                <div class="px-4 w-full text-center sm:w-auto sm:text-left">
+                    Copyright ©
+                    <script>new Date().getFullYear() > 2020 && document.write(" " + new Date().getFullYear())</script>
+                    CommunityGreen. All Rights Reserved.
+                </div>
+                <div class="px-4 w-full text-center sm:w-auto sm:text-left">
+                    CommunityGreen
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"
+        integrity="sha512-qF6akR/fsZAB4Co1QDDnUXWnaQseLGXoniuSuSlPQK6+aWhlMZcHzkasCSlnWoe+TJuudlka1/IQ01Dnhgq95g=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollTrigger.min.js"
+        integrity="sha512-IHDCHrefnBT3vOCsvdkMvJF/MCPz/nBauQLzJkupa4Gn4tYg5a6VGyzIrjo6QAUy3We5HFOZUlkUpP0dkgE60A=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+></script>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
